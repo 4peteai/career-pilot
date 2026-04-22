@@ -1,0 +1,64 @@
+# Career Pilot — Candidate Profile (example)
+# Copy this file to profile.yml and fill in your own details.
+# profile.yml is gitignored — it will never be committed.
+
+candidate:
+  full_name: "Your Name"
+  email: "you@example.com"
+  phone: "+00 000 000 0000"
+  location: "City, Country"
+  timezone: "UTC+0"
+  linkedin: "https://linkedin.com/in/yourhandle"
+  portfolio_url: ""          # optional
+  github: ""                 # optional
+
+target_roles:
+  primary:
+    - "AI Engineer"
+    - "Applied AI Engineer"
+    - "Forward Deployed Engineer"
+  archetypes:
+    - name: "AI Engineer"
+      thematic_axes: "RAG pipelines, LLM orchestration, agent workflows, evaluation frameworks, Python/FastAPI"
+      what_they_buy: "Someone who builds working AI systems and understands enterprise context"
+      keywords:
+        - AI Engineer
+        - Applied AI Engineer
+        - ML Engineer
+        - AI Developer
+        - LLM Engineer
+
+narrative:
+  headline: "One-line positioning statement — what you do, for whom, and why."
+  exit_story: >
+    Two-to-three sentence story about where you are now and what you're looking for.
+  superpowers:
+    - "A capability that's rare in your target market"
+    - "Another rare capability"
+  proof_points:
+    - title: "Project or achievement"
+      detail: "One-line concrete result with numbers where possible"
+
+compensation:
+  target_primary: "Your target compensation for primary market"
+  target_remote: "Your target for remote roles"
+  minimum: "Your hard floor"
+  currencies: ["USD", "EUR"]
+  notes: "Any relevant constraints (part-time, freelance, etc.)"
+
+location:
+  country: "Country"
+  city: "City"
+  timezone: "UTC+0"
+  visa: "Your work authorization status"
+  onsite_availability: "Where you can work on-site (if anywhere)"
+  willing_to_relocate: false
+  filter_rules:
+    home: "What's acceptable in home country (hybrid/remote/on-site)"
+    rest_of_world: "What's acceptable elsewhere (usually remote only)"
+
+automation:
+  scoring_actions:
+    A_or_B: "generate PDF + add to tracker as 'Ready to Apply'"
+    C: "add to tracker as 'Review'"
+    D_or_below: "log and skip"

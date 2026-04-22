@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ name }} — CV</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.45;
+    color: #1a1a1a;
+    background: #fff;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  /* Header */
+  header {
+    margin-bottom: 16px;
+    border-bottom: 3px solid;
+    border-image: linear-gradient(90deg, hsl(187, 74%, 32%), hsl(270, 70%, 45%)) 1;
+    padding-bottom: 12px;
+  }
+
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 24pt;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 4px;
+  }
+
+  .contact {
+    font-size: 9pt;
+    color: #555;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .contact a {
+    color: hsl(187, 74%, 32%);
+    text-decoration: none;
+  }
+
+  {% if target_title or target_company %}
+  .target {
+    font-size: 9pt;
+    color: hsl(270, 70%, 45%);
+    margin-top: 4px;
+    font-weight: 500;
+  }
+  {% endif %}
+
+  /* Section headers */
+  h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: hsl(187, 74%, 32%);
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 3px;
+    margin: 14px 0 8px 0;
+  }
+
+  /* Content */
+  .section-content {
+    font-size: 10pt;
+    white-space: pre-wrap;
+  }
+
+  /* Keywords */
+  .keywords {
+    display: none; /* Hidden for ATS parsing */
+  }
+
+  /* Lists */
+  ul {
+    margin-left: 16px;
+    margin-bottom: 6px;
+  }
+
+  li {
+    margin-bottom: 2px;
+  }
+
+  /* Compact print */
+  @media print {
+    body { font-size: 10pt; }
+    .container { padding: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>{{ name }}</h1>
+    <div class="contact">
+      {% if email %}<span>{{ email }}</span>{% endif %}
+      {% if phone %}<span>{{ phone }}</span>{% endif %}
+      {% if location %}<span>{{ location }}</span>{% endif %}
+      {% if linkedin %}<span><a href="{{ linkedin }}">LinkedIn</a></span>{% endif %}
+      {% if github %}<span><a href="{{ github }}">GitHub</a></span>{% endif %}
+      {% if portfolio %}<span><a href="{{ portfolio }}">Portfolio</a></span>{% endif %}
+    </div>
+    {% if target_title or target_company %}
+    <div class="target">Target: {{ target_title }}{% if target_company %} at {{ target_company }}{% endif %}</div>
+    {% endif %}
+  </header>
+
+  {% for section in sections %}
+  <section>
+    {% if section.title %}<h2>{{ section.title }}</h2>{% endif %}
+    <div class="section-content">{{ section.content }}</div>
+  </section>
+  {% endfor %}
+
+  {% if keywords %}
+  <div class="keywords">{{ keywords | join(', ') }}</div>
+  {% endif %}
+</div>
+</body>
+</html>

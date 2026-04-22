@@ -1,0 +1,55 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "career-pilot"
+version = "0.1.0"
+description = "AI-powered job search pipeline — scan, filter, evaluate, and track opportunities with Claude"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+authors = [{ name = "Pete Parkhomenko", email = "pete.ai@gmail.com" }]
+keywords = ["job-search", "ai", "claude", "automation", "career"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Office/Business",
+]
+dependencies = [
+    "typer[all]>=0.12",
+    "anthropic>=0.40",
+    "httpx>=0.27",
+    "pyyaml>=6.0",
+    "pydantic>=2.0",
+    "playwright>=1.40",
+    "textual>=0.80",
+    "rich>=13.0",
+    "jinja2>=3.1",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = ["ruff", "mypy", "pytest", "pytest-asyncio"]
+
+[project.scripts]
+career-pilot = "career_pilot.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/career_pilot"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true

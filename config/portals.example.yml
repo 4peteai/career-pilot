@@ -1,0 +1,49 @@
+# Career Pilot — Portals Configuration (example)
+# Copy this file to portals.yml and customize for your own search.
+# portals.yml is gitignored — it will never be committed.
+
+# Title filter — positive keywords must match at least one; negative excludes.
+title_filter:
+  positive:
+    - AI Engineer
+    - Applied AI
+    - ML Engineer
+    - LLM Engineer
+    - Forward Deployed Engineer
+    - Solutions Engineer
+  negative:
+    - Intern
+    - Junior
+    - Entry Level
+    - PhD Required
+
+# Companies to scan. scan_method is one of: greenhouse, ashby, lever.
+# The slug is the company identifier in the board URL (e.g. boards.greenhouse.io/<slug>).
+tracked_companies:
+  anthropic:
+    career_url: "https://www.anthropic.com/careers"
+    scan_method: "greenhouse"
+  openai:
+    career_url: "https://openai.com/careers"
+    scan_method: "greenhouse"
+  langchain:
+    career_url: "https://www.langchain.com/careers"
+    scan_method: "ashby"
+  elevenlabs:
+    career_url: "https://elevenlabs.io/careers"
+    scan_method: "ashby"
+  deepgram:
+    career_url: "https://deepgram.com/company/careers"
+    scan_method: "ashby"
+  databricks:
+    career_url: "https://www.databricks.com/company/careers"
+    scan_method: "greenhouse"
+
+# Free-text search queries (for platforms that support search).
+search_queries:
+  - query: "AI Engineer remote"
+    board: "greenhouse"
+  - query: "Forward Deployed Engineer"
+    board: "ashby"
+  - query: "LLM Engineer remote Europe"
+    board: "lever"

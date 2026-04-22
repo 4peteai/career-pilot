@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+
+# Personal config (PII) — keep *.example.* templates tracked, ignore real files
+config/profile.yml
+config/cv.md
+config/portals.yml
+
+# Generated outputs (keep structure, ignore contents)
+output/*.pdf
+output/*.html
+reports/*.md
+!reports/.gitkeep
+
+# Data (local state)
+data/scan_history.json
+data/applications.md
+!data/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Type checking / testing
+.mypy_cache/
+.pytest_cache/
+htmlcov/
+.coverage
